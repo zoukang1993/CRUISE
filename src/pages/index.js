@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {inject, observer} from 'mobx-react';
-
+import './index.scss';
 
 @inject('stores')
 @observer
@@ -15,9 +15,21 @@ class MainPanel extends Component {
 
     render() {
         return(
-            <div className="container">
-                <div className="left-tab">left</div>
-                <div className="main">main</div>
+            <div className="app">
+                <div className="header">
+                    <div className="header-menu">+</div>
+                    <div>CRUISE</div>
+                    <div>
+                        <img className="header-avatar-img" src={require('../assets/logo/avatar.jpg')} alt="avatar" />
+                    </div>
+                </div>
+                <div className="container">
+                    <div className="left-tab">
+                        <div className>Agent</div>
+                    </div>
+                    <div className="main">main</div>
+                </div>
+                <div className="footer">&copy;2018</div>
             </div>
         );
     }
