@@ -1,0 +1,18 @@
+.container {
+    width: 1200px;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    margin: 0 auto;
+}
+
+.left-tab {
+    width: 360px;
+    background: black;
+    opacity: .6;
+}
+
+.main {
+    width: 850px;
+    border: 1px solid #ccc;
+}

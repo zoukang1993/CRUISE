@@ -1,7 +1,8 @@
+import Agent from './agent';
 
 class Stores {
     constructor() {
-        // this.blogStore = new Blog();ss
+        this.agentStore = new Agent();
     }
 }
 
