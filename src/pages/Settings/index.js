@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom';
-import HomeLayout from '../../layouts/HomeLayout';
 
 @withRouter
-class Agent extends Component {
+class Settings extends Component {
     constructor(props) {
         super(props);
 
@@ -19,10 +18,10 @@ class Agent extends Component {
                     <use xlinkHref="#icondelete"></use>
                 </svg> */}
 
-                Agent
+                Settings
             </div>
         );
     }
 }
 
-export default Agent;
+export default Settings;
