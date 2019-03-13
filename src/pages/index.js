@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
 import {inject, observer} from 'mobx-react';
+import {Link, withRouter, Redirect} from 'react-router-dom';
 import './index.scss';
+import Agent from './Agent';
 
+@withRouter
 @inject('stores')
 @observer
 class MainPanel extends Component {
@@ -9,11 +12,19 @@ class MainPanel extends Component {
         super(props);
 
         this.state = {
-
+            activePage: 'agent',
         };
     }
 
+    setActive = (activePage) => {
+        this.setState({
+            activePage,
+        });
+    }
+
     render() {
+        console.log(this.state.activePage);
+
         return(
             <div className="app">
                 <div className="header">
@@ -25,9 +36,16 @@ class MainPanel extends Component {
                 </div>
                 <div className="container">
                     <div className="left-tab">
-                        <div className>Agent</div>
+                        <div onClick={() => this.setActive('agent')} className="left-tab-item">
+                            <Redirect to="/agent">Agent</Redirect>
+                        </div>
+                        <div onClick={() => this.setActive('Personal')} className="left-tab-item">Personal</div>
+                        <div onClick={() => this.setActive('Setting')} className="left-tab-item">Setting</div>
+                        <div onClick={() => this.setActive('Others')} className="left-tab-item">Others</div>
                     </div>
-                    <div className="main">main</div>
+                    <div className="main">
+                        {this.state.activePage === 'agent' && <Agent />}
+                    </div>
                 </div>
                 <div className="footer">&copy;2018</div>
             </div>

@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
+import {withRouter} from 'react-router-dom';
 
-export default class Agent extends Component {
+
+@withRouter
+class Agent extends Component {
     constructor(props) {
         super(props);
 
@@ -12,10 +15,14 @@ export default class Agent extends Component {
     render() {
         return(
             <div>
-                <svg className="icon icondelete" aria-hidden="true">
+                {/* <svg className="icon icondelete" aria-hidden="true">
                     <use xlinkHref="#icondelete"></use>
-                </svg>
+                </svg> */}
+
+                agent
             </div>
         );
     }
 }
+
+export default Agent;
