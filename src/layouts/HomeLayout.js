@@ -1,17 +1,25 @@
 import React from 'react';
-import {Link, Redirect} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import './index.scss';
+import classnames from 'classnames';
 
 class HomeLayout extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
+            activePage: 'agent',
         };
     }
 
     setActive = (activePage) => {
-        this.props.onChangePage(activePage);
+        if (this.state.activePage === activePage) {
+            return;
+        }
+
+        this.setState({
+            activePage,
+        });
     }
     
     render () {
@@ -28,14 +36,14 @@ class HomeLayout extends React.Component {
                 </div>
                 <div className="container">
                     <div className="left-tab">
-                        <div className="left-tab-item">
+                        <div className={classnames("left-tab-item", {active: this.state.activePage === "agent"})} onClick={() => this.setActive("agent")}>
                             <Link to="/agent">Agent</Link>
                         </div>
-                        <div className="left-tab-item">
+                        <div className={classnames("left-tab-item", {active: this.state.activePage === "settings"})} onClick={() => this.setActive("settings")}>
                             <Link to="/settings">Settings</Link>
                         </div>
-                        <div className="left-tab-item">Personal</div>
-                        <div className="left-tab-item">Others</div>
+                        <div className={classnames("left-tab-item", {active: this.state.activePage === "personal"})} onClick={() => this.setActive("personal")}>Personal</div>
+                        <div className={classnames("left-tab-item", {active: this.state.activePage === "others"})} onClick={() => this.setActive("others")}>Others</div>
                     </div>
                     <div className="main">
                         {children}

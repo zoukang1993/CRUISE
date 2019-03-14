@@ -7,12 +7,11 @@ import HomeLayout from './layouts//HomeLayout';
 import Agent from './pages/Agent';
 import Settings from './pages/Settings';
 
-
 const router = () => {
     return(
         <Switch>
             <Route path="/" component={MainPanel} exact />
-            <Route path="/agent" component={() => <HomeLayout><Agent /></HomeLayout>} exact />
+            <Route path="/agent" replace component={() => <HomeLayout><Agent /></HomeLayout>} exact />
             <Route path="/settings" component={() => <HomeLayout><Settings /></HomeLayout>} exact />
         </Switch>
     );

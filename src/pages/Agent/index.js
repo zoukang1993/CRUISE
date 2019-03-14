@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom';
-import HomeLayout from '../../layouts/HomeLayout';
 
 @withRouter
 class Agent extends Component {
