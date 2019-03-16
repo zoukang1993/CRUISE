@@ -91,12 +91,14 @@
     &-area {
         background: #F3F3F3;
         height: 30px;
-        line-height: 30px;
         margin: 10px;
         padding-left: 4px;
+        width: 200px;
     }
 
     &-input {
+        height: 28px;
+        width: 150px;
         border: none;
         outline: none;
         background: #F3F3F3;
@@ -105,10 +107,9 @@
 }
 
 .agent-others {
-    width: 100%;
+    width: 30%;
     text-align: right;
     line-height: 45px;
-    padding-right: 12px;
 
     &-menu {
         margin-right: 12px;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import MainPanel from './pages';
+// import MainPanel from './pages';
 import HomeLayout from './layouts//HomeLayout';
 
 import Agent from './pages/Agent';
