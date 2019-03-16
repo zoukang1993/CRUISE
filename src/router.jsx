@@ -10,7 +10,7 @@ import Settings from './pages/Settings';
 const router = () => {
     return(
         <Switch>
-            <Route path="/" component={MainPanel} exact />
+            <Route path="/" component={() => <HomeLayout><Agent /></HomeLayout>} exact />
             <Route path="/agent" replace component={() => <HomeLayout><Agent /></HomeLayout>} exact />
             <Route path="/settings" component={() => <HomeLayout><Settings /></HomeLayout>} exact />
         </Switch>

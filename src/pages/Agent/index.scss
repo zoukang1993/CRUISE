@@ -1,0 +1,130 @@
+.agent-page-container {
+    padding: 12px 16px;
+    box-sizing: border-box;
+    background: #f3f3f3;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.agent-page-header {
+    display: flex;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .header-card {
+        background: white;
+        width: 28%;
+        height: 110px;
+        padding: 12px;
+        display: inline-flex;
+        display: -webkit-inline-flex;
+        color: white;
+
+        .header-card-title {
+            font-size: 12px;
+            width: 50%;
+            font-weight: bold;
+        }
+
+        .header-card-num {
+            width: 50%;
+            font-size: 48px;
+            text-align: right;
+            align-self: flex-end;
+            text-align: right;
+        }
+
+        &.header-card-yellow {
+            background: #FFB900;
+        }
+
+        &.header-card-green {
+            background: #7FBC39;
+        }
+
+        .header-card-total-item {
+            width: 30%;
+            text-align: center;
+            line-height: 30px;
+            color: black;
+            font-size: 14px;
+
+            .header-card-item-title {
+                margin-bottom: 40px;
+                color: #697685;
+                font-size: 12px;
+            }
+
+            .header-card-item-num {
+                font-size: 20px;
+            }
+        }
+    }
+}
+
+.agent-page-operate {
+    background: white;
+    height: 45px;
+    margin-top: 16px;
+    @extend %flex-common;
+
+    .switch-card-menu-container {
+        @extend %inline-flex-common;
+
+        .swithc-card-menu-item {
+            width: 70px;
+            font-size: 12px;
+            text-align: center;
+            line-height: 45px;
+            border-right: 1px solid #EFEFEF;
+
+            &.active {
+                border-bottom: 3px solid #00B4CF;
+            }
+        }
+    }
+}
+
+.agent-search {
+    &-area {
+        background: #F3F3F3;
+        height: 30px;
+        line-height: 30px;
+        margin: 10px;
+        padding-left: 4px;
+    }
+
+    &-input {
+        border: none;
+        outline: none;
+        background: #F3F3F3;
+        padding: 0 4px;
+    }
+}
+
+.agent-others {
+    width: 100%;
+    text-align: right;
+    line-height: 45px;
+    padding-right: 12px;
+
+    &-menu {
+        margin-right: 12px;
+    }
+}
+
+.agent-page-main {
+    margin-top: 20px;
+}
+
+%flex-common {
+    display: flex;
+    display: -webkit-flex;
+}
+
+%inline-flex-common {
+    display: inline-flex;
+    display: -webkit-inline-flex;
+}
