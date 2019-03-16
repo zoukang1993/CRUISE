@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import {inject, observer} from 'mobx-react';
 import './index.scss';
 import PropTypes from 'prop-types';
-import {Modal} from 'antd';
+import Modal from '../../../components/Modal';
 
 @inject('stores')
 @observer
@@ -13,7 +13,8 @@ class AgentDetail extends Component {
 
         this.state = {
             data: {},
-            modalVisible: true,
+            modalVisible: false,
+            agentSources: '',
         };
     }
 
@@ -39,6 +40,7 @@ class AgentDetail extends Component {
     }
 
     openModal = () => {
+        console.log("aa");
         this.setState({
             modalVisible: true,
         });
@@ -47,6 +49,12 @@ class AgentDetail extends Component {
     calcelModal = () => {
         this.setState({
             modalVisible: false,
+        });
+    }
+
+    addAgentSources = (e) => {
+        this.setState({
+            agentSources: e.target.value,
         });
     }
 
@@ -96,6 +104,24 @@ class AgentDetail extends Component {
         }
     }
 
+    _renderModalView() {
+        return(
+            <Modal
+                title="Separate multiple resource name with commas"
+                visible = {this.state.modalVisible}
+                onOk = {this.addResource}
+                onCancel={() => this.calcelModal()}
+            >
+                <input
+                    className = "modal-input"
+                    value = {this.state.agentSources}
+                    onChange = {this.addAgentSources}
+                    placeholder = {"Input value"}
+                />
+            </Modal>
+        );
+    }
+
     _renderAgentResource() {
         return(
             <div className="agent-resource-list">
@@ -126,6 +152,7 @@ class AgentDetail extends Component {
                     </span>
                     : ''
                 }
+                {this._renderModalView()}
             </div>
         );
     }

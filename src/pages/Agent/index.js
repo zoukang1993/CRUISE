@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import {computed} from 'mobx';
 import {inject, observer} from 'mobx-react';
-import './index.scss';
 import AgentDetail from './AgentDetail';
+import './index.scss';
 
 @inject('stores')
 @observer
@@ -136,7 +136,3 @@ class Agent extends Component {
 }
 
 export default Agent;
-
-{/* <svg className="icon icondelete" aria-hidden="true">
-        <use xlinkHref="#icondelete"></use>
-    </svg> */}

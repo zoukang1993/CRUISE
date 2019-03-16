@@ -17,5 +17,60 @@ code {
     padding: 0 2px;
 }
 
+.root {
+    font-size: 14px;
+    font-family: 'Avenir', 'Helvetica', 'Arial', 'sans-serif';
+}
+
+$default-color: #2D4054;
+$hover-color: #00b4cf;
+
+
+.left-tab {
+    color: white;
+    cursor: pointer;
+    background: $default-color;
+    padding-top: 30px;
+
+    
+
+    .left-tab-item {
+        height: 45px;
+        line-height: 45px;
+        text-align: center;
+        font-size: 16px;
+
+        &.active {
+            opacity: .8;
+        }
+
+        &:hover {
+            background: #435466;
+        }
+    }
+}
+
+.history-list {
+    font-size: 12px;
+    color: #ccc;
+    padding: 14px;
+    margin-top: 16px;
+
+    .history-item {
+        font-size: 12px;
+        color: #999;
+        height: 20px;
+        line-height: 20px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        
+
+        &:hover {
+            color: #00b4cf;
+        }
+    }
+}
+
+
 @import './styles/cruise';
 

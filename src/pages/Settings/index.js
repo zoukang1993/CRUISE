@@ -11,10 +11,6 @@ class Settings extends Component {
     render() {
         return(
             <div>
-                {/* <svg className="icon icondelete" aria-hidden="true">
-                    <use xlinkHref="#icondelete"></use>
-                </svg> */}
-
                 Settings
             </div>
         );

@@ -64,6 +64,7 @@
     display: -webkit-flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 
     .add-agent-source-icon {
         fill: #00B4CF;
@@ -90,4 +91,8 @@
         font-size: 14px;
         color: white;
     }
+}
+
+.wrap-modal-view {
+    font: outline;
 }
