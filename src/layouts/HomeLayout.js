@@ -9,6 +9,7 @@ class HomeLayout extends React.Component {
 
         this.state = {
             activePage: 'agent',
+            visibleTabMenu: false,
         };
     }
 
@@ -21,14 +22,24 @@ class HomeLayout extends React.Component {
             activePage,
         });
     }
+
+    visibleTabMenu = () => {
+        this.setState({
+            visibleTabMenu: ! this.state.visibleTabMenu,
+        });
+    }
     
     render () {
         const {children} = this.props;
-
+        
         return (
             <div className="app">
                 <div className="header">
-                    <div className="header-menu">+</div>
+                    <div className="header-menu" onClick={this.visibleTabMenu}>
+                        <svg className="icon iconnine10 header-visible-menu" aria-hidden="true">
+                            <use xlinkHref="#iconnine10"></use>
+                        </svg>
+                    </div>
                     <div>
                         <img className="avatar" src={require('../assets/logo/logo.svg')} alt="SRUISE" />
                     </div>
@@ -37,17 +48,22 @@ class HomeLayout extends React.Component {
                     </div>
                 </div>
                 <div className="container">
-                    <div className="left-tab">
+                    <div className={`left-tab ${this.state.visibleTabMenu ? "active" : ''}`}>
                         <div className="tab-menu-container">
+                            <div onClick={this.visibleTabMenu} className="hide-tab-menu-icon">
+                                <svg className="icon icondelete1" aria-hidden="true">
+                                    <use xlinkHref="#icondelete1"></use>
+                                </svg>
+                            </div>
                             <div className={classnames("left-tab-item", {active: this.state.activePage === "agent"})} onClick={() => this.setActive("agent")}>
-                                <svg className="icon icondashboard" aria-hidden="true" onClick={this.search}>
+                                <svg className="icon icondashboard" aria-hidden="true">
                                     <use xlinkHref="#icondashboard"></use>
                                 </svg>
                                 DASHBOARD
                             </div>
                             <div className={classnames("left-tab-item", {active: this.state.activePage === "agent"})} onClick={() => this.setActive("agent")}>
                                 <Link to="/agent">
-                                    <svg className="icon iconsitemap" aria-hidden="true" onClick={this.search}>
+                                    <svg className="icon iconsitemap" aria-hidden="true">
                                         <use xlinkHref="#iconsitemap"></use>
                                     </svg>
                                     AGENT
@@ -55,7 +71,7 @@ class HomeLayout extends React.Component {
                             </div>
                             <div className={classnames("left-tab-item", {active: this.state.activePage === "settings"})} onClick={() => this.setActive("settings")}>
                                 <Link to="/settings">
-                                    <svg className="icon iconLC_icon_setting_line" aria-hidden="true" onClick={this.search}>
+                                    <svg className="icon iconLC_icon_setting_line" aria-hidden="true">
                                         <use xlinkHref="#iconLC_icon_setting_line"></use>
                                     </svg>
                                     SETTINGS
