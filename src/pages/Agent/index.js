@@ -15,6 +15,10 @@ class Agent extends Component {
             searchText: '',
             buildingNum: 0,
             idleNum: 0,
+            allNum: 0,
+            physical: [],
+            virtual : [],
+            activeTabMenu: 'all',
         };
     }
 
@@ -27,16 +31,52 @@ class Agent extends Component {
         let agentData = this.agentStore.agentList;
         let buildingArr = agentData.filter((item) => item.status === 'building');
         let idleArr = agentData.filter((item) => item.status === 'idle');
+        let physicalArr = agentData.filter((item) => item.type === 'physical');
+        let virtualArr = agentData.filter((item) => item.type === 'virtual');
 
         this.setState({
             content: agentData,
             buildingNum: buildingArr.length || 0,
             idleNum: idleArr.length || 0,
+            allNum: agentData.length || 0,
+            physical: physicalArr,
+            virtual: virtualArr,
         });
     }
 
     componentWillMount() {
         this.init();
+    }
+
+    selectDataRender = (type) => {
+        let activeTab = "";
+
+        switch(type) {
+            case 'content':
+                activeTab = 'all'
+                break;
+            case 'physical':
+                activeTab = 'physical'
+                break;
+            case 'virtual':
+                activeTab = 'virtual'
+                break;
+            default:
+                activeTab = "all"
+                break;
+        }
+
+
+        if (!type) {
+            return;
+        }
+
+        let selectData = this.state[type];
+
+        this.setState({
+            content: selectData,
+            activeTabMenu: activeTab,
+        });
     }
 
     inputSearchText = (e) => {
@@ -67,15 +107,15 @@ class Agent extends Component {
                 <div className="header-card">
                     <div className="header-card-total-item">
                         <div className="header-card-item-title">ALL</div>
-                        <div className="header-card-item-num">8</div>
+                        <div className="header-card-item-num">{this.state.allNum}</div>
                     </div>
                     <div className="header-card-total-item">
                         <div className="header-card-item-title">PHYSICAL</div>
-                        <div className="header-card-item-num">4</div>
+                        <div className="header-card-item-num">{this.state.physical.length || 0}</div>
                     </div>
                     <div className="header-card-total-item">
                         <div className="header-card-item-title">VIRTUAL</div>
-                        <div className="header-card-item-num">4</div>
+                        <div className="header-card-item-num">{this.state.virtual.length || 0}</div>
                     </div>
                 </div>
             </div>
@@ -86,9 +126,9 @@ class Agent extends Component {
         return(
             <div className="agent-page-operate">
                 <div className="switch-card-menu-container">
-                    <div className="swithc-card-menu-item active">All</div>
-                    <div className="swithc-card-menu-item">Physical</div>
-                    <div className="swithc-card-menu-item">Virtual</div>
+                    <div className={`swithc-card-menu-item ${this.state.activeTabMenu === "all" ? 'active' : ''}`} onClick={() => this.selectDataRender("content")}>All</div>
+                    <div className={`swithc-card-menu-item ${this.state.activeTabMenu === "physical" ? 'active' : ''}`} onClick={() => this.selectDataRender("physical")}>Physical</div>
+                    <div className={`swithc-card-menu-item ${this.state.activeTabMenu === "virtual" ? 'active' : ''}`} onClick={() => this.selectDataRender("virtual")}>Virtual</div>
                 </div>
                 <div className="agent-search-area">
                     <svg className="icon iconsearch" aria-hidden="true" onClick={this.search}>
