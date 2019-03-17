@@ -35,19 +35,39 @@ class AgentDetail extends Component {
     }
 
     addResource = () => {
-        this.openModal();
+        if (!this.state.agentSources) {
+            this.cancelModal();
+            return;
+        }
 
+        let content = this.props.content;
+        let agentArr = this.state.agentSources.trim().split(",");
+
+        agentArr.map((item) => {
+            if (content.resources.includes(item)) {
+                return content.resources;
+            }
+
+            content.resources.push(item);
+            return content;
+        });
+
+        this.setState({
+            data: content,
+        });
+
+        this.cancelModal();
     }
 
     openModal = () => {
-        console.log("aa");
         this.setState({
             modalVisible: true,
         });
     }
 
-    calcelModal = () => {
+    cancelModal = () => {
         this.setState({
+            agentSources: '',
             modalVisible: false,
         });
     }
@@ -72,8 +92,6 @@ class AgentDetail extends Component {
         if (!this.state.status === "idle") {
             return;
         }
-
-        console.log(this.state.data.status);
 
         let allData = this.state.data;
         allData.status = 'idle';
@@ -110,7 +128,7 @@ class AgentDetail extends Component {
                 title="Separate multiple resource name with commas"
                 visible = {this.state.modalVisible}
                 onOk = {this.addResource}
-                onCancel={() => this.calcelModal()}
+                onCancel={() => this.cancelModal()}
             >
                 <input
                     className = "modal-input"
