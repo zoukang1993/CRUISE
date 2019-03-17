@@ -13,6 +13,8 @@ class Agent extends Component {
         this.state = {
             content: [],
             searchText: '',
+            buildingNum: 0,
+            idleNum: 0,
         };
     }
 
@@ -22,9 +24,14 @@ class Agent extends Component {
 
     init = async () => {
         await this.agentStore.getAgentList();
+        let agentData = this.agentStore.agentList;
+        let buildingArr = agentData.filter((item) => item.status === 'building');
+        let idleArr = agentData.filter((item) => item.status === 'idle');
 
         this.setState({
-            content: this.agentStore.agentList
+            content: agentData,
+            buildingNum: buildingArr.length || 0,
+            idleNum: idleArr.length || 0,
         });
     }
 
@@ -51,11 +58,11 @@ class Agent extends Component {
             <div className="agent-page-header">
                 <div className="header-card header-card-yellow">
                     <div className="header-card-title">Building</div>
-                    <div className="header-card-num">3</div>
+                    <div className="header-card-num">{this.state.buildingNum}</div>
                 </div>
                 <div className="header-card header-card-green">
                     <div className="header-card-title">Idle</div>
-                    <div className="header-card-num">3</div>
+                    <div className="header-card-num">{this.state.idleNum}</div>
                 </div>
                 <div className="header-card">
                     <div className="header-card-total-item">
