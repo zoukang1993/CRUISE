@@ -143,7 +143,7 @@ class AgentDetail extends Component {
     _renderAgentResource() {
         return(
             <div className="agent-resource-list">
-                <div>
+                <div style={{width: '86%'}}>
                     <span onClick={this.openModal}>
                         <svg className="icon iconadd add-agent-source-icon" aria-hidden="true">
                             <use xlinkHref="#iconadd"></use>

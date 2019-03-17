@@ -12,6 +12,9 @@
         justify-content: space-around;
         align-items: center;
         background: white;
+        box-shadow: 0 2px 4px #ccc;
+        position: relative;
+        z-index: 100;
 
         .header-menu {
             visibility: hidden;
@@ -89,6 +92,9 @@
         align-items: center;
         background: white;
         padding: 0 10px;
+        box-shadow: 0 2px 5px #ccc;
+        position: relative;
+        z-index: 100;
 
         .header-menu {
             font-size: 18px;
@@ -130,6 +136,10 @@
         flex-direction: column;
         justify-content: space-between;
         transition: left 2s;
+        -moz-transition: left 2s;
+        -o-transition: left 2s;
+        -ms-transition: left 2s;
+        -webkit-transition: left 2s;
 
         &.active {
             left: 0;
@@ -178,6 +188,9 @@
         align-items: center;
         background: white;
         padding: 0 10px;
+        box-shadow: 0 2px 5px #ccc;
+        position: relative;
+        z-index: 100;
 
         .header-menu {
             font-size: 18px;
@@ -219,6 +232,11 @@
         flex-direction: column;
         justify-content: space-between;
         transition: left 2s;
+        transition: left 2s;
+        -moz-transition: left 2s;
+        -o-transition: left 2s;
+        -ms-transition: left 2s;
+        -webkit-transition: left 2s;
 
         &.active {
             left: 0;
