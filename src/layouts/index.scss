@@ -38,7 +38,7 @@
     }
     
     .left-tab {
-        width: 300px;
+        width: 260px;
         background: black;
         opacity: .8;
         display: flex;
@@ -52,6 +52,10 @@
         overflow-y: auto;
         padding: 14px;
         color: white;
+
+        &::-webkit-scrollbar{
+            display:none;
+        }
     }
     
     .main {

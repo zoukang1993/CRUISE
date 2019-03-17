@@ -40,13 +40,29 @@ class HomeLayout extends React.Component {
                     <div className="left-tab">
                         <div className="tab-menu-container">
                             <div className={classnames("left-tab-item", {active: this.state.activePage === "agent"})} onClick={() => this.setActive("agent")}>
-                                <Link to="/agent">Agent</Link>
+                                <svg className="icon icondashboard" aria-hidden="true" onClick={this.search}>
+                                    <use xlinkHref="#icondashboard"></use>
+                                </svg>
+                                DASHBOARD
+                            </div>
+                            <div className={classnames("left-tab-item", {active: this.state.activePage === "agent"})} onClick={() => this.setActive("agent")}>
+                                <Link to="/agent">
+                                    <svg className="icon iconsitemap" aria-hidden="true" onClick={this.search}>
+                                        <use xlinkHref="#iconsitemap"></use>
+                                    </svg>
+                                    AGENT
+                                </Link>
                             </div>
                             <div className={classnames("left-tab-item", {active: this.state.activePage === "settings"})} onClick={() => this.setActive("settings")}>
-                                <Link to="/settings">Settings</Link>
+                                <Link to="/settings">
+                                    <svg className="icon iconLC_icon_setting_line" aria-hidden="true" onClick={this.search}>
+                                        <use xlinkHref="#iconLC_icon_setting_line"></use>
+                                    </svg>
+                                    SETTINGS
+                                </Link>
                             </div>
-                            <div className={classnames("left-tab-item", {active: this.state.activePage === "personal"})} onClick={() => this.setActive("personal")}>Personal</div>
-                            <div className={classnames("left-tab-item", {active: this.state.activePage === "others"})} onClick={() => this.setActive("others")}>Others</div>
+                            {/* <div className={classnames("left-tab-item", {active: this.state.activePage === "personal"})} onClick={() => this.setActive("personal")}>Personal</div> */}
+                            {/* <div className={classnames("left-tab-item", {active: this.state.activePage === "others"})} onClick={() => this.setActive("others")}>Others</div> */}
                         </div>
                         <div className="history-container">
                             <h3>History</h3>
