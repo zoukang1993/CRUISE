@@ -104,7 +104,7 @@ class Agent extends Component {
                     <div className="header-card-title">Idle</div>
                     <div className="header-card-num">{this.state.idleNum}</div>
                 </div>
-                <div className="header-card">
+                <div className="header-card calculate-data-show">
                     <div className="header-card-total-item">
                         <div className="header-card-item-title">ALL</div>
                         <div className="header-card-item-num">{this.state.allNum}</div>

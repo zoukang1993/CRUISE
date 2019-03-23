@@ -4,6 +4,7 @@ import {inject, observer} from 'mobx-react';
 import './index.scss';
 import PropTypes from 'prop-types';
 import Modal from '../../../components/Modal';
+import classnames from 'classnames';
 
 @inject('stores')
 @observer
@@ -176,8 +177,10 @@ class AgentDetail extends Component {
     }
 
     render() {
+        console.log(this.state.data);
+
         return(
-            <div className="agent-detail">
+            <div className={classnames("agent-detail", {'agent-idle-border-left': this.state.data.status === 'idle' ? true : false})}>
                 <div className="agent-detail-os">
                     {this.renderOSImg()}
                 </div>
