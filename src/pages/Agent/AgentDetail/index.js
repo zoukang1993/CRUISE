@@ -144,12 +144,12 @@ class AgentDetail extends Component {
     _renderAgentResource() {
         return(
             <div className="agent-resource-list">
-                <div style={{width: '86%'}}>
-                    <span onClick={this.openModal}>
-                        <svg className="icon iconadd add-agent-source-icon" aria-hidden="true">
-                            <use xlinkHref="#iconadd"></use>
-                        </svg>
-                    </span>
+                <div onClick={this.openModal} className="add-agent-source-icon">
+                    <svg className="icon iconadd" aria-hidden="true">
+                        <use xlinkHref="#iconadd"></use>
+                    </svg>
+                </div>
+                <div className="agent-source-list">
                     {
                         this.state.data.resources.length ?
                         this.state.data.resources.map((item) => 
@@ -164,15 +164,15 @@ class AgentDetail extends Component {
                 </div>
                 {
                     this.state.data.status === 'building' ?
-                    <span className="agent-deny" onClick={this.denyAgent}>
+                    <div className="agent-deny" onClick={this.denyAgent}>
                         <svg className="icon icondeny" aria-hidden="true">
                             <use xlinkHref="#icondeny"></use>
                         </svg> deny
-                    </span>
+                    </div>
                     : ''
                 }
                 {this._renderModalView()}
-            </div>
+            </div>    
         );
     }
 

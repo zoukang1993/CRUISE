@@ -20,13 +20,17 @@
     .modal-container-title {
         text-align: center;
     }
+
+    .modal-header-title {
+        color: #6A6A6A;
+    }
 }
 
 .modal-main {
     margin-top: 20px;
 
     .modal-input {
-        width: 100%;
+        width: 98%;
         height: 35px;
         padding: 0 2px;
         outline: none;
@@ -60,6 +64,50 @@
         &.cancel-btn {
             background: #435466;
             margin-left: 14px;
+        }
+    }
+}
+
+@media screen and(max-width: 768px) {
+    .modal-container {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        top: auto;
+        height: 180px;
+        width: 90%;
+        background: white;
+    }
+
+    .icondelete1 {
+        fill: #00B4CF;
+    }
+
+
+    .modal-main {
+        margin-top: 20px;
+    
+        .modal-input {
+            padding: 0 2px;
+            outline: none;
+            border: 1px solid #ccc;
+    
+            &::-webkit-input-placeholder {
+                color: #00B4CF;
+                font-size: 12px;
+            }
+        }
+    }
+
+    .modal-footer {
+        width: 100%;
+
+        .add-btn {
+            width: 100%;
+        }
+
+        .cancel-btn {
+            display: none;
         }
     }
 }

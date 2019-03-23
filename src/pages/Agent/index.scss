@@ -98,7 +98,7 @@
 
     &-input {
         height: 28px;
-        width: 150px;
+        width: 100px;
         border: none;
         outline: none;
         background: #F3F3F3;
@@ -107,7 +107,8 @@
 }
 
 .agent-others {
-    width: 35%;
+    width: 90%;
+    padding-right: 10px;
     text-align: right;
     line-height: 45px;
 
