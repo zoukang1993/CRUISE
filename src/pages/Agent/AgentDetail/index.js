@@ -90,7 +90,7 @@ class AgentDetail extends Component {
     }
 
     denyAgent = () => {
-        if (!this.state.status === "idle") {
+        if (this.state.status === "idle") {
             return;
         }
 

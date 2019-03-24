@@ -13,4 +13,15 @@ export default class Agent {
             throw e;
         }
     }
+
+    @action
+    denyAgent = async (agentId) => {
+        console.log(agentId);
+        try {
+            let item = this.agentList.filter(item => item.id = agentId);
+            console.log(item);
+        } catch(e) {
+            throw e;
+        }
+    }
 }
