@@ -177,8 +177,6 @@ class AgentDetail extends Component {
     }
 
     render() {
-        console.log(this.state.data);
-
         return(
             <div className={classnames("agent-detail", {'agent-idle-border-left': this.state.data.status === 'idle' ? true : false})}>
                 <div className="agent-detail-os">

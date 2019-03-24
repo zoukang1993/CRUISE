@@ -31,3 +31,4 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 
 ## react + mobx
+## author ZouKang 13109668925

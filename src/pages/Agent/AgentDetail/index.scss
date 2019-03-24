@@ -178,13 +178,14 @@
         }
     
         .agent-source-list {
-            width: 90%;
+            width: 91%;
+            margin-bottom: 8px;
             
             .agent-resource-item {
-                height: 50px;
+                height: 0;
                 width: 90px;;
                 padding: 4px 8px;
-                line-height: 50px;
+                line-height: 0;
                 background: #EFEFEF;
                 margin-right: 20px;
                 font-size: 12px;
