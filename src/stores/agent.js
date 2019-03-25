@@ -16,10 +16,9 @@ export default class Agent {
 
     @action
     denyAgent = async (agentId) => {
-        console.log(agentId);
         try {
-            let item = this.agentList.filter(item => item.id = agentId);
-            console.log(item);
+            let res = this.agentList.filter(item => item.id === agentId);
+            return res;
         } catch(e) {
             throw e;
         }

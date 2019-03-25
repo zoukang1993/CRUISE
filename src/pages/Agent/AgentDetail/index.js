@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import {computed} from 'mobx';
+import {computed} from 'mobx';
 import {inject, observer} from 'mobx-react';
 import './index.scss';
 import PropTypes from 'prop-types';
@@ -21,6 +21,10 @@ class AgentDetail extends Component {
 
     static propTypes = {
         data: PropTypes.object,
+    }
+
+    @computed get agentStore() {
+        return this.props.stores.agentStore;
     }
 
     init = () => {
@@ -89,13 +93,19 @@ class AgentDetail extends Component {
         });
     }
 
-    denyAgent = () => {
+    denyAgent = async () => {
         if (this.state.status === "idle") {
             return;
         }
 
         let allData = this.state.data;
-        allData.status = 'idle';
+        let res = await this.agentStore.denyAgent(allData.id);
+
+        if(!res.length) {
+            return;
+        }
+
+        allData.status = "idle";
         this.setState({
             data: allData,
         });
