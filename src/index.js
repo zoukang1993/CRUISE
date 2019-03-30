@@ -4,22 +4,22 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'mobx-react';
 import { RouterStore, syncHistoryWithStore } from 'mobx-react-router';
 import { Router } from 'react-router-dom';
-import { createHashHistory } from 'history';
+import { createBrowserHistory } from 'history';
 
 import stores from './stores';
-import router from './router';
+import Routers from './router.jsx';
 import './index.scss';
 
-const hashHistory = createHashHistory();
+const browserHistroy = createBrowserHistory();
 const routerStore = new RouterStore();
 
-const history = syncHistoryWithStore(hashHistory, routerStore);
+const history = syncHistoryWithStore(browserHistroy, routerStore);
 
 (() => {
     ReactDOM.render(
         <Provider stores={stores}>
             <Router history={history}>
-                { router() }
+                <Routers />
             </Router>
         </Provider>,
         document.getElementById('root')
