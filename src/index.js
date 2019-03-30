@@ -7,8 +7,10 @@ import { Router } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 
 import stores from './stores';
-import Routers from './router.jsx';
+import Routers from './router/';
 import './index.scss';
+
+console.log(stores);
 
 const browserHistroy = createBrowserHistory();
 const routerStore = new RouterStore();
