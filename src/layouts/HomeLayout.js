@@ -41,7 +41,9 @@ class HomeLayout extends React.Component {
                         </svg>
                     </div>
                     <div>
-                        <img className="avatar" src={require('../assets/logo/logo.svg')} alt="SRUISE" />
+                        <Link to="/">
+                            <img className="avatar" src={require('../assets/logo/logo.svg')} alt="SRUISE" />
+                        </Link>
                     </div>
                     <div>
                         <img className="header-avatar-img" src={require('../assets/logo/avatar.jpg')} alt="avatar" />
