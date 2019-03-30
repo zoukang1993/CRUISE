@@ -17,6 +17,21 @@
          overflow: hidden;
       }
     </style>
+    
+    <script>
+      (function() {
+        let url = window.location.href;
+  
+        if (url.match(/debug/)) {
+          let s = document.createElement("script");
+          s.setAttribute("src", '//cdn.bootcss.com/eruda/1.5.2/eruda.min.js');
+          document.getElementsByTagName('head')[0].appendChild(s); 
+          s.onload = function() {
+            eruda.init();
+          }
+        }
+      })()
+    </script>
     <script src="//at.alicdn.com/t/font_1082314_6yvkp7cu9l.js"></script>
 
   </head>
