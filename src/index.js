@@ -10,8 +10,6 @@ import stores from './stores';
 import Routers from './router/';
 import './index.scss';
 
-console.log(stores);
-
 const browserHistroy = createBrowserHistory();
 const routerStore = new RouterStore();
 

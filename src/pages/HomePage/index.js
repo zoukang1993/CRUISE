@@ -1,15 +1,3 @@
-import React, { Component } from 'react';
-import './index.scss';
-
-
-class HomePage extends Component {
-    render() {
-        return(
-            <div>
-                homePage
-            </div>
-        );
-    }
-}
+import HomePage from './HomePage.tsx';
 
 export default HomePage;
