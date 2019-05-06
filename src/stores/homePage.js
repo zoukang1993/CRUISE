@@ -5,7 +5,7 @@ class HomePage {
 
     @action
     getMineInfo = async () => {
-        
+        return {};
     }
 }
 
