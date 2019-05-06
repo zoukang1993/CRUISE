@@ -18,12 +18,12 @@ class HomePage extends Component {
         return this.props.stores.homePageStore;
     }
 
-    init = async () : void => {
+    // init = async () : void => {
 
-    }
+    // }
 
     componentWillMount() {
-        this.init();
+        // this.init();
     }
 
     render() {
